@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Octopus.CoreUtilities", "Octopus.CoreUtilities\Octopus.CoreUtilities.csproj", "{44150B31-0723-4608-A62C-C0A5F9882E28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Octopus.CoreUtilities.Tests", "Octopus.CoreUtilities.Tests\Octopus.CoreUtilities.Tests.csproj", "{DD7810A5-2D9A-4326-B3D3-99F0146B3B6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{44150B31-0723-4608-A62C-C0A5F9882E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44150B31-0723-4608-A62C-C0A5F9882E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44150B31-0723-4608-A62C-C0A5F9882E28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD7810A5-2D9A-4326-B3D3-99F0146B3B6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD7810A5-2D9A-4326-B3D3-99F0146B3B6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD7810A5-2D9A-4326-B3D3-99F0146B3B6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD7810A5-2D9A-4326-B3D3-99F0146B3B6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
