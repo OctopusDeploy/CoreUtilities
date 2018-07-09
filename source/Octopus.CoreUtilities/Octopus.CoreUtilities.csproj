@@ -12,4 +12,7 @@
     <Copyright>Copyright © Octopus Deploy 2017</Copyright>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+  </ItemGroup>
 </Project>
