@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net40</TargetFrameworks>
+    <TargetFrameworks>net40;netstandard1.3</TargetFrameworks>
     <AssemblyName>Octopus.CoreUtilities</AssemblyName>
     <PackageId>Octopus.CoreUtilities</PackageId>
     <PackageIconUrl>http://i.octopusdeploy.com/resources/Avatar3_360.png</PackageIconUrl>
@@ -21,5 +21,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.3'">
+    <PackageReference Include="System.Net.Requests" Version="4.3.0" />
   </ItemGroup>
 </Project>
