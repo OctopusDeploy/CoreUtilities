@@ -3,7 +3,7 @@
     <TargetFrameworks>net40;netstandard1.3</TargetFrameworks>
     <AssemblyName>Octopus.CoreUtilities</AssemblyName>
     <PackageId>Octopus.CoreUtilities</PackageId>
-    <PackageIconUrl>http://i.octopusdeploy.com/resources/Avatar3_360.png</PackageIconUrl>
+    <PackageIcon>http://i.octopusdeploy.com/resources/Avatar3_360.png</PackageIcon>
     <Authors>Octopus Deploy</Authors>
     <Title>Octopus Utility Classes</Title>
     <Description>Utility classes shared between the Octopus Deploy server, Calamari and other Octopus libraries</Description>
