@@ -72,7 +72,7 @@ namespace Octopus.CoreUtilities.Extensions
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool None<T>(this T[] array)
-            => array.Length > 0;
+            => array.Length == 0;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool None<TKey, TValue>(this IDictionary<TKey, TValue> list)
