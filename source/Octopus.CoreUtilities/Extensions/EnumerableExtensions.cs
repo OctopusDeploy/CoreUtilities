@@ -11,84 +11,100 @@ namespace Octopus.CoreUtilities.Extensions
     public static class EnumerableExtensions
     {
 #if NET40 || NET452 // ToHashSet was added to System.Linq in 4.7.2, NetStandard 2.1
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static HashSet<T> ToHashSet<T>(this IEnumerable<T> source)
         {
             return new HashSet<T>(source);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static HashSet<T> ToHashSet<T>(this IEnumerable<T> source, IEqualityComparer<T> comparer)
         {
             return new HashSet<T>(source, comparer);
         }
 #endif
 
-#if NET40 || NET452 || NETSTANDARD2_0 || NETCOREAPP3_1
-        // In .NET 5.0 Enumerable.Any() calls Count/Length so these are no longer needed
-        // https://github.com/dotnet/corefx/pull/40377
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Any<T>(this ICollection<T> collection)
             => collection.Count > 0;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Any<T>(this List<T> list)
             => list.Count > 0;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Any<T>(this T[] array)
             => array.Length > 0;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Any<TKey, TValue>(this IDictionary<TKey, TValue> list)
             where TKey : notnull
             => list.Count > 0;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Any<TKey, TValue>(this ILookup<TKey, TValue> list)
             => list.Count > 0;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Any<TKey, TValue>(this Dictionary<TKey, TValue> list)
             where TKey : notnull
             => list.Count > 0;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Any<T>(this HashSet<T> list)
             => list.Count > 0;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool Any<T>(this IReadOnlyList<T> list)
+            => list.Count > 0;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool Any<T>(this IReadOnlyCollection<T> list)
+            => list.Count > 0;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool None<T>(this ICollection<T> collection)
             => collection.Count == 0;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool None<T>(this List<T> list)
             => list.Count == 0;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool None<T>(this T[] array)
             => array.Length > 0;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool None<TKey, TValue>(this IDictionary<TKey, TValue> list)
             where TKey : notnull
             => list.Count == 0;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool None<TKey, TValue>(this ILookup<TKey, TValue> list)
             => list.Count == 0;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool None<TKey, TValue>(this Dictionary<TKey, TValue> list)
             where TKey : notnull
             => list.Count == 0;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool None<T>(this HashSet<T> list)
             => list.Count == 0;
-#endif
 
-#if NET452 || NETSTANDARD2_0 || NETCOREAPP3_1
-        public static bool Any<T>(this IReadOnlyList<T> list)
-            => list.Count > 0;
-
-        public static bool Any<T>(this IReadOnlyCollection<T> list)
-            => list.Count > 0;
-
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool None<T>(this IReadOnlyList<T> list)
             => list.Count == 0;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool None<T>(this IReadOnlyCollection<T> list)
             => list.Count == 0;
-#endif
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool None<T>(this IEnumerable<T> items)
             => !items.Any();
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool None<T>(this IEnumerable<T> items, Func<T, bool> predicate)
             => !items.Any(predicate);
 
@@ -110,11 +126,13 @@ namespace Octopus.CoreUtilities.Extensions
             return joined == "" ? "" : $"'{joined}'";
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<T> ToEnumerable<T>(this T source)
         {
             return new T[] {source};
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<TSource> Yield<TSource>(this TSource item)
         {
             yield return item;
@@ -133,15 +151,19 @@ namespace Octopus.CoreUtilities.Extensions
             return keyValuePairs.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<TSource> TakeUntil<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
             => source.TakeWhile(x => !predicate(x));
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<TSource> SkipUntil<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
             => source.SkipWhile(x => !predicate(x));
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<string> WhereNotNullOrWhiteSpace(this IEnumerable<string> source)
             => source.Where(item => !string.IsNullOrWhiteSpace(item));
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<T> WhereNotNull<T>(this IEnumerable<T?> items)
             where T : class
             => items.Where(i => i != null)!;
