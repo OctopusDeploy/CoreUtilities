@@ -3,12 +3,10 @@ using Nuke.Common.Execution;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tools.DotNet;
+using Nuke.Common.Tools.OctoVersion;
 using Nuke.Common.Utilities.Collections;
-using OctoVersion.Core;
 using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
-using static Nuke.Common.IO.CompressionTasks;
-using Nuke.OctoVersion;
 
 [CheckBuildProjectConfigurations]
 [UnsetVisualStudioEnvironmentVariables]
@@ -18,7 +16,7 @@ class Build : NukeBuild
 
     [Solution] readonly Solution Solution;
 
-    [NukeOctoVersion] readonly OctoVersionInfo OctoVersionInfo;
+    [OctoVersion] readonly OctoVersionInfo OctoVersionInfo;
 
     AbsolutePath SourceDirectory => RootDirectory / "source";
     AbsolutePath ArtifactsDirectory => RootDirectory / "artifacts";
@@ -53,7 +51,7 @@ class Build : NukeBuild
         .Executes(() =>
         {
             Logger.Info("Building Octopus.CoreUtilities v{0}", OctoVersionInfo.FullSemVer);
-      
+
             DotNetBuild(_ => _
                 .SetProjectFile(Solution)
                 .SetConfiguration(Configuration)
